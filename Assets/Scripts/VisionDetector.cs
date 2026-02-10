@@ -12,18 +12,7 @@ public class VisionDetector : MonoBehaviour
     public static event Action OnChase;
     public static event Action OnStopChase;
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, DetectionRange);
-
-        Gizmos.color = Color.yellow;
-        var direction = Quaternion.AngleAxis(VisionAngle/2, transform.forward) * transform.right;
-        Gizmos.DrawRay(transform.position, direction * DetectionRange);
-        var direction2 = Quaternion.AngleAxis(-VisionAngle/2, transform.forward) * transform.right;
-        Gizmos.DrawRay(transform.position, direction2 * DetectionRange);
-
-        Gizmos.color = Color.white;
-    }
+ 
 
     private void Update()
     {
@@ -36,6 +25,17 @@ public class VisionDetector : MonoBehaviour
             }
         }
     }
+
+   /* private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, DetectionRange);
+        Vector3 leftBoundary = Quaternion.Euler(0, 0, VisionAngle / 2) * transform.right * DetectionRange;
+        Vector3 rightBoundary = Quaternion.Euler(0, 0, -VisionAngle / 2) * transform.right * DetectionRange;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + leftBoundary);
+        Gizmos.DrawLine(transform.position, transform.position + rightBoundary);
+    } */
 
     private Transform[] DetectPlayers()
     {
