@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class VisionDetector : MonoBehaviour
@@ -7,6 +8,9 @@ public class VisionDetector : MonoBehaviour
     public LayerMask WhatIsVisible;
     public float DetectionRange;
     public float VisionAngle;
+
+    public static event Action OnChase;
+    public static event Action OnStopChase;
 
     private void OnDrawGizmos()
     {
@@ -23,7 +27,14 @@ public class VisionDetector : MonoBehaviour
 
     private void Update()
     {
-        if (DetectPlayers().Length > 0) Debug.Log("Player detected");
+        if (DetectPlayers().Length > 0) {
+            OnChase?.Invoke();
+
+            if (!(DetectPlayers().Length > 0))
+            {
+                OnStopChase?.Invoke();
+            }
+        }
     }
 
     private Transform[] DetectPlayers()
