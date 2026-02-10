@@ -3,30 +3,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField]
-    private float Speed = 5.0f;
+    [SerializeField] private float Speed = 5.0f;
+    [SerializeField] private float acceleration = 12.0f; // Controla la resposta
 
-    Rigidbody2D _rigidbody;
-    private float _horizontalDir; // Horizontal move direction value [-1, 1]
+    private Rigidbody2D rb;
+    private Vector2 movementInput;
+    private Vector2 currentVelocity;
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Aquest mètode s'executa cada vegada que premis o deixis anar una tecla
+    void OnMove(InputValue value)
+    {
+        movementInput = value.Get<Vector2>();
     }
 
     void FixedUpdate()
     {
-        Vector2 velocity = _rigidbody.linearVelocity;
-        velocity.x = _horizontalDir * Speed;
-        _rigidbody.linearVelocity = velocity;
-    }
+        // Calculem la velocitat objectiu
+        Vector2 targetVelocity = movementInput * Speed;
 
-    // NOTE: InputSystem: "move" action becomes "OnMove" method
-    void OnMove(InputValue value)
-    {
-        // Read value from control, the type depends on what
-        // type of controls the action is bound to
-        var inputVal = value.Get<Vector2>();
-        _horizontalDir = inputVal.x;
+        // Fem que la velocitat actual s'apropi a l'objectiu de forma fluida
+        // Això corregirà el "bloqueig" que sents i farà el canvi més orgànic
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
     }
 }
