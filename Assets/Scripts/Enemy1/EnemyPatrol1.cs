@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements.Experimental;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol1 : MonoBehaviour
 {
     public Transform EdgedetectionPoint;
     public LayerMask WhatIsWall;
@@ -50,18 +50,18 @@ public class EnemyPatrol : MonoBehaviour
 
     private void OnEnable()
     {
-        VisionDetector.OnChase += StartChase;
-        VisionDetector.OnStopChase += StopChasing;
-        Chasing.OnReturn += Returning;
-        Chasing.OnStopReturn += StopReturning;
+        VisionDetector1.OnChase += StartChase;
+        VisionDetector1.OnStopChase += StopChasing;
+        Chasing1.OnReturn += Returning;
+        Chasing1.OnStopReturn += StopReturning;
     }
 
     private void OnDisable()
     {
-        VisionDetector.OnChase -= StartChase;
-        VisionDetector.OnStopChase -= StopChasing;
-        Chasing.OnReturn -= Returning;
-        Chasing.OnStopReturn -= StopReturning;
+        VisionDetector1.OnChase -= StartChase;
+        VisionDetector1.OnStopChase -= StopChasing;
+        Chasing1.OnReturn -= Returning;
+        Chasing1.OnStopReturn -= StopReturning;
     }
 
     private void StartChase()
@@ -89,21 +89,5 @@ public class EnemyPatrol : MonoBehaviour
         transform.localRotation = Quaternion.identity;
 
         returning = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("TurnPoint"))
-        {
-            if (movingRight)
-            {
-                movingRight = false;
-            }
-            else
-            {
-                movingRight = true;
-            }
-            Flip();
-        }
     }
 }

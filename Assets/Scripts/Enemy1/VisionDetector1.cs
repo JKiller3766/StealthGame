@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisionDetector : MonoBehaviour
+public class VisionDetector1 : MonoBehaviour
 {
     public LayerMask WhatIsPlayer;
     public LayerMask WhatIsVisible;

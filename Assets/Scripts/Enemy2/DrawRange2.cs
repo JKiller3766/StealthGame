@@ -1,19 +1,17 @@
 using UnityEngine;
 
-public class DrawRange : MonoBehaviour
+public class DrawRange2 : MonoBehaviour
 {
-    [Header("Configuraci�n de L�neas")]
     public LineRenderer visionLine;
 
-    [Header("Ajustes de Visi�n")]
     public float detectionRange = 5f;
     public float visionAngle = 45f;
     [Range(10, 60)] public int segments = 30;
 
     private void OnEnable()
     {
-        VisionDetector.OnChase += () => SetupLine(visionLine, Color.red, 0.05f);
-        VisionDetector.OnStopChase += () => SetupLine(visionLine, Color.yellow, 0.05f);
+        VisionDetector2.OnChase += () => SetupLine(visionLine, Color.red, 0.05f);
+        VisionDetector2.OnStopChase += () => SetupLine(visionLine, Color.yellow, 0.05f);
     }
     void Start()
     {
