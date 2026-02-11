@@ -13,8 +13,15 @@ public class HighScoreText : MonoBehaviour
 
     private void OnEnable()
     {
-        labelHighScore.text = ("Highscore time:" + System.Math.Round(WinTrigger.highScore, 2)  + 
+
+        if (WinTrigger.win)
+        {
+            labelHighScore.text = ("Highscore time:" + System.Math.Round(WinTrigger.highScore, 2)  + 
             "\n" + "Your current time:" + System.Math.Round(WinTrigger.currentTime, 2) +
             "\n" + "Distance walked: " + System.Math.Round(PlayerMove.distance, 2));
+        }else 
+        {
+            labelHighScore.text = ("Try again!");
+        }
     }
 }
