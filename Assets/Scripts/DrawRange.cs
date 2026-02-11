@@ -12,8 +12,8 @@ public class DrawRange : MonoBehaviour
 
     private void OnEnable()
     {
-        VisionDetector1.OnChase += () => SetupLine(visionLine, Color.red, 0.05f);
-        VisionDetector1.OnStopChase += () => SetupLine(visionLine, Color.yellow, 0.05f);
+        VisionDetector.OnChase += () => SetupLine(visionLine, Color.red, 0.05f);
+        VisionDetector.OnStopChase += () => SetupLine(visionLine, Color.yellow, 0.05f);
     }
     void Start()
     {
