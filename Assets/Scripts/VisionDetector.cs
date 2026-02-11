@@ -9,28 +9,54 @@ public class VisionDetector : MonoBehaviour
     public LayerMask WhatIsVisible;
     public float DetectionRange;
     public float VisionAngle;
-    public bool chasing;
+    private bool chasing;
+
+    [SerializeField]
+    private float time = 3f;
 
     public static event Action OnChase;
     public static event Action OnStopChase;
 
- 
+    private void OnEnable()
+    {
+        Chasing.OnStopReturn += StopReturning;
+    }
+
+    private void OnDisable()
+    {
+        Chasing.OnStopReturn -= StopReturning;
+    }
+
+    void StopReturning()
+    {
+        chasing = false;
+    }
 
     private void FixedUpdate()
     {
         var playersDetected = DetectPlayers().Length > 0;
 
-        if (playersDetected && !chasing) {
-            chasing = true;
-            OnChase?.Invoke();
-        } else if (!playersDetected && chasing)
+        if (playersDetected && !chasing && time < 2f) {
+            if (!chasing)
+            {
+                Debug.Log("Detectado");
+                chasing = true;
+                OnChase?.Invoke();
+            } else
+            {
+                time += Time.deltaTime;
+            }
+
+        } else if (!playersDetected && chasing && time > 2f)
         {
+            Debug.Log("No Detectado");
+            time = 0f;
             chasing = false;
             OnStopChase?.Invoke();
         }
     }
 
-   /* private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, DetectionRange);
@@ -39,7 +65,7 @@ public class VisionDetector : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + leftBoundary);
         Gizmos.DrawLine(transform.position, transform.position + rightBoundary);
-    } */
+    }
 
     private Transform[] DetectPlayers()
     {

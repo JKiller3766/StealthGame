@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class DetectorVisual : MonoBehaviour
 {
-    [Header("Configuración de Líneas")]
+    [Header("Configuraciï¿½n de Lï¿½neas")]
     public LineRenderer visionLine;
 
-    [Header("Ajustes de Visión")]
+    [Header("Ajustes de Visiï¿½n")]
     public float detectionRange = 5f;
     public float visionAngle = 45f;
     [Range(10, 60)] public int segments = 30;
