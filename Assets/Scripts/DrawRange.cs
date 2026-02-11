@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DetectorVisual : MonoBehaviour
+public class DrawRange : MonoBehaviour
 {
     [Header("Configuraci�n de L�neas")]
     public LineRenderer visionLine;
