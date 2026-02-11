@@ -9,6 +9,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] 
     public static float DistanceMade = 0f;
 
+    [SerializeField]
+    public GameObject sprite;
+
+
     Rigidbody2D rb;
     private Vector2 moveInput;
 
@@ -34,6 +38,11 @@ public class PlayerMove : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+
+            sprite.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
     }
 }
