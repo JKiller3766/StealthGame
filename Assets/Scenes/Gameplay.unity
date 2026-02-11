@@ -617,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 155923679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.35, y: -11.75, z: 0}
+  m_LocalPosition: {x: 19.95, y: -3.5, z: 0}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23452,7 +23452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1455ba27c16efcc43a37cc76999f2bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol2
-  Speed: 0
 --- !u!114 &1450510759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23467,10 +23466,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VisionDetector2
   WhatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   WhatIsVisible:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   DetectionRange: 4
   VisionAngle: 60
   MemoryTime: 0.05
