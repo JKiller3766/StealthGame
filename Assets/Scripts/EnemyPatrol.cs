@@ -14,8 +14,6 @@ public class EnemyPatrol : MonoBehaviour
     void FixedUpdate()
     {
         if (!chasing && !returning) Move();
-
-        if (EdgeDetected() && !chasing && !returning) Flip();
     }
 
     private void Move()
@@ -23,25 +21,7 @@ public class EnemyPatrol : MonoBehaviour
         transform.Translate(transform.right * Speed * Time.deltaTime, Space.World);
     }
 
-    private bool EdgeDetected()
-    {
-        RaycastHit2D hit;
-
-        if (movingRight)
-        {
-            hit = Physics2D.Raycast(EdgedetectionPoint.position, Vector2.right, 1.5f, WhatIsWall);
-
-        } else {
-            hit = Physics2D.Raycast(EdgedetectionPoint.position, Vector2.left, 1.5f, WhatIsWall);
-        }
-
-        if (hit.collider != null)
-        {
-            movingRight = false;
-            return true;
-        }
-        return false;
-    }
+    
 
     private void Flip()
     {
@@ -89,5 +69,21 @@ public class EnemyPatrol : MonoBehaviour
         transform.localRotation = Quaternion.identity;
         
         returning = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("TurnPoint"))
+        {
+            if (movingRight)
+            {
+                movingRight = false;
+            }
+            else
+            {
+                movingRight = true;
+            }
+            Flip();
+        }
     }
 }

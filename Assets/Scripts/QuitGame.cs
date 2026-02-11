@@ -3,12 +3,9 @@ using UnityEngine.InputSystem;
 
 public class QuitGame : MonoBehaviour
 {
-    void Update()
+    public void OnExitGame()
     {
-        if(Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
             Application.Quit();
             Debug.Log("Salir del juego...");
-        }
     }
 }
