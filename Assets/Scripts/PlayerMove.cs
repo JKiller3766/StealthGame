@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     private float speed = 3.0f;
 
     [SerializeField] 
-    public static float DistanceMade = 0f;
+    public static float distance = 0f;
 
     [SerializeField]
     public GameObject sprite;
@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
         Vector2 targetVelocity = moveInput * speed;
         rb.linearVelocity = (moveInput * speed);
 
-        DistanceMade += Vector2.Distance(rb.position, lastPosition);
+        distance += Vector2.Distance(rb.position, lastPosition);
 
         lastPosition = rb.position;
     }

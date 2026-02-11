@@ -12,6 +12,6 @@ public class TextDistanceUI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Label.text = ("Distance: " + System.Math.Round(PlayerMove.DistanceMade, 2) + " m");
+        Label.text = ("Distance: " + System.Math.Round(PlayerMove.distance, 2) + " m");
     }
 }

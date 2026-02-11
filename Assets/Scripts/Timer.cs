@@ -10,5 +10,4 @@ public class Timer : MonoBehaviour
     {
         TimePast += Time.deltaTime;
     }
-
 }
