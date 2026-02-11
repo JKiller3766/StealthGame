@@ -152,10 +152,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1171093572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -684.12, y: 496}
-  m_SizeDelta: {x: 506.87, y: 48.55}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -144.12, y: 182}
+  m_SizeDelta: {x: 506.87, y: 48.549988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105861
 MonoBehaviour:
@@ -22553,10 +22553,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1171093572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -684.12, y: 400}
-  m_SizeDelta: {x: 506.87, y: 48.55}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -144.12, y: 86}
+  m_SizeDelta: {x: 506.87, y: 48.549988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204079991
 MonoBehaviour:
@@ -23138,7 +23138,7 @@ MonoBehaviour:
     m_Bits: 192
   DetectionRange: 4
   VisionAngle: 60
-  time: 0
+  MemoryTime: 0.05
 --- !u!114 &1343789292
 MonoBehaviour:
   m_ObjectHideFlags: 0
