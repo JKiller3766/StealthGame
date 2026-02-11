@@ -21,6 +21,8 @@ public class Chasing : MonoBehaviour
         v2 = transform.position;
     }
 
+    
+
     private void OnEnable()
     {
         VisionDetector.OnChase += StartChase;
@@ -35,10 +37,9 @@ public class Chasing : MonoBehaviour
 
     private void StartChase()
     {
-        if (!chasing) 
+        if (!chasing && !wasChasing) 
         {
             chasing = true;
-            v2 = transform.position;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,14 +66,12 @@ public class Chasing : MonoBehaviour
             Vector2 dir = player.position - this.transform.position;
             this.transform.position += (Vector3)dir.normalized * Speed * Time.deltaTime;
             transform.Rotate(0, 0, GetAnglePlayer());
-
         } else if (wasChasing) {
 
             Vector2 dir = v2 - new Vector2(transform.position.x, transform.position.y);
             this.transform.position += (Vector3)dir.normalized * Speed * Time.deltaTime;
             OnReturn?.Invoke();
             transform.Rotate(0, 0, GetAngleReturn());
-
             if (Vector2.Distance(transform.position, v2) < 0.02f)
             {
                 OnStopReturn?.Invoke();
@@ -84,14 +83,14 @@ public class Chasing : MonoBehaviour
     private float GetAnglePlayer()
     {
         Vector2 dir = player.position - transform.position;
-        float angle = Vector3.Angle(dir, transform.right);
+        float angle = Vector2.Angle(dir, transform.right);
         return angle;
     }
 
     private float GetAngleReturn()
     {
         Vector2 dir = new Vector2(v2.x-transform.position.x, v2.y - transform.position.y);
-        float angle = Vector3.Angle(dir, transform.right);
+        float angle = Vector2.Angle(dir, transform.right);
         return angle;
     }
 }

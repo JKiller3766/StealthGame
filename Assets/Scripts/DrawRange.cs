@@ -14,7 +14,7 @@ public class DetectorVisual : MonoBehaviour
     void Start()
     {
         SetupLine(visionLine, Color.yellow, 0.05f);
-        SetupLine(circleLine, new Color(1, 1, 1, 0.3f), 0.03f);
+        SetupLine(circleLine, new Color(255, 0, 0, 0.3f), 0.03f);
     }
 
     void Update()
