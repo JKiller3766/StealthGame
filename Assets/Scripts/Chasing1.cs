@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Chasing : MonoBehaviour
+public class Chasing1 : MonoBehaviour
 {
     public float Speed = 3f;
 
@@ -25,14 +25,14 @@ public class Chasing : MonoBehaviour
 
     private void OnEnable()
     {
-        VisionDetector.OnChase += StartChase;
-        VisionDetector.OnStopChase += StopChasing;
+        VisionDetector1.OnChase += StartChase;
+        VisionDetector1.OnStopChase += StopChasing;
     }
 
     private void OnDisable()
     {
-        VisionDetector.OnChase -= StartChase;
-        VisionDetector.OnStopChase -= StopChasing;
+        VisionDetector1.OnChase -= StartChase;
+        VisionDetector1.OnStopChase -= StopChasing;
     }
 
     private void StartChase()

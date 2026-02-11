@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DrawRange : MonoBehaviour
+public class DrawRange1 : MonoBehaviour
 {
     [Header("Configuraci�n de L�neas")]
     public LineRenderer visionLine;
