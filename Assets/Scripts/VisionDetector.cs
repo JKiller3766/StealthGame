@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class VisionDetector : MonoBehaviour
 {
@@ -8,21 +9,24 @@ public class VisionDetector : MonoBehaviour
     public LayerMask WhatIsVisible;
     public float DetectionRange;
     public float VisionAngle;
+    public bool chasing;
 
     public static event Action OnChase;
     public static event Action OnStopChase;
 
  
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (DetectPlayers().Length > 0) {
-            OnChase?.Invoke();
+        var playersDetected = DetectPlayers().Length > 0;
 
-            if (!(DetectPlayers().Length > 0))
-            {
-                OnStopChase?.Invoke();
-            }
+        if (playersDetected && !chasing) {
+            chasing = true;
+            OnChase?.Invoke();
+        } else if (!playersDetected && chasing)
+        {
+            chasing = false;
+            OnStopChase?.Invoke();
         }
     }
 

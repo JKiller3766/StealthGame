@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements.Experimental;
 
 public class EnemyPatrol : MonoBehaviour
 {
@@ -6,12 +8,14 @@ public class EnemyPatrol : MonoBehaviour
     public LayerMask WhatIsWall;
     public float Speed;
     private bool movingRight = true;
+    private bool chasing = false;
+    private bool returning = false;
 
     void FixedUpdate()
     {
-        Move();
+        if (!chasing && !returning) Move();
 
-        if (EdgeDetected()) Flip();
+        if (EdgeDetected() && !chasing && !returning) Flip();
     }
 
     private void Move()
@@ -42,5 +46,48 @@ public class EnemyPatrol : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(0, 0, 180);
+    }
+
+    private void OnEnable()
+    {
+        VisionDetector.OnChase += StartChase;
+        VisionDetector.OnStopChase += StopChasing;
+        Chasing.OnReturn += Returning;
+        Chasing.OnStopReturn += StopReturning;
+    }
+
+    private void OnDisable()
+    {
+        VisionDetector.OnChase -= StartChase;
+        VisionDetector.OnStopChase -= StopChasing;
+        Chasing.OnReturn -= Returning;
+        Chasing.OnStopReturn -= StopReturning;
+    }
+
+    private void StartChase()
+    {
+        if (!chasing)
+        {
+            chasing = true;
+        }
+    }
+    void StopChasing()
+    {
+        if (chasing)
+        {
+            chasing = false;
+        }
+    }
+
+    void Returning()
+    {
+        returning = true;
+    }
+
+    void StopReturning()
+    {
+        transform.localRotation = Quaternion.identity;
+        
+        returning = false;
     }
 }
