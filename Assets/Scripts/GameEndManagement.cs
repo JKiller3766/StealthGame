@@ -8,18 +8,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class endingText : MonoBehaviour
 {
-    public Text labelTitle;
-
+    public Text LabelTitle;
 
     private void OnEnable()
     {
-        if (WinTrigger.win)
+        if (WinTrigger.Win)
         {
-            labelTitle.text = ("Congratulations!");
+            LabelTitle.text = ("Congratulations!");
         } else
         {
-            labelTitle.text = ("Game over!");
+            LabelTitle.text = ("Game over!");
         }
-        
     }
 }

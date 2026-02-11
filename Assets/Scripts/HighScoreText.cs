@@ -8,20 +8,19 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class HighScoreText : MonoBehaviour
 {
-    public Text labelHighScore;
-
+    public Text LabelHighScore;
 
     private void OnEnable()
     {
-
-        if (WinTrigger.win)
+        if (WinTrigger.Win)
         {
-            labelHighScore.text = ("Highscore time:" + System.Math.Round(WinTrigger.highScore, 2)  + 
-            "\n" + "Your current time:" + System.Math.Round(WinTrigger.currentTime, 2) +
-            "\n" + "Distance walked: " + System.Math.Round(PlayerMove.distance, 2));
-        }else 
+            LabelHighScore.text = ("Highscore time:" + System.Math.Round(WinTrigger.HighScore, 2)  + 
+            "\n" + "Your current time:" + System.Math.Round(WinTrigger.CurrentTime, 2) +
+            "\n" + "Distance walked: " + System.Math.Round(PlayerMove.Distance, 2));
+        }
+		else 
         {
-            labelHighScore.text = ("Try again!");
+            LabelHighScore.text = ("Try again!");
         }
     }
 }

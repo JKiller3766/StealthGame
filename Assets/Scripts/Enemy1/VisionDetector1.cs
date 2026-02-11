@@ -20,11 +20,9 @@ public class VisionDetector1 : MonoBehaviour
     private void FixedUpdate()
     {
         bool canSeePlayer = CheckForPlayer();
-
         if (canSeePlayer)
         {
             timer = MemoryTime;
-
             if (!isChasing)
             {
                 isChasing = true;
@@ -36,7 +34,6 @@ public class VisionDetector1 : MonoBehaviour
             if (isChasing)
             {
                 timer -= Time.deltaTime;
-
                 if (timer <= 0)
                 {
                     isChasing = false;

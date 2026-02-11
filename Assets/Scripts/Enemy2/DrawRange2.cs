@@ -2,20 +2,26 @@ using UnityEngine;
 
 public class DrawRange2 : MonoBehaviour
 {
-    public LineRenderer visionLine;
+    public LineRenderer VisionLine;
 
-    public float detectionRange = 5f;
-    public float visionAngle = 45f;
-    [Range(10, 60)] public int segments = 30;
+    public float DetectionRange = 5f;
+    public float VisionAngle = 45f;
+    [Range(10, 60)] public int Segments = 30;
 
     private void OnEnable()
     {
-        VisionDetector2.OnChase += () => SetupLine(visionLine, Color.red, 0.05f);
-        VisionDetector2.OnStopChase += () => SetupLine(visionLine, Color.yellow, 0.05f);
+        VisionDetector2.OnChase += CambiarARojo;
+        VisionDetector2.OnStopChase += CambiarAAmarillo;
     }
+    private void OnDisable()
+    {
+        VisionDetector2.OnChase -= CambiarARojo;
+        VisionDetector2.OnStopChase -= CambiarAAmarillo;
+    }
+
     void Start()
     {
-        SetupLine(visionLine, Color.yellow, 0.05f);
+        SetupLine(VisionLine, Color.yellow, 0.05f);
     }
 
     void Update()
@@ -23,8 +29,13 @@ public class DrawRange2 : MonoBehaviour
         DrawVisionCone();
     }
 
+    private void CambiarARojo() => SetupLine(VisionLine, Color.red, 0.05f);
+    private void CambiarAAmarillo() => SetupLine(VisionLine, Color.yellow, 0.05f);
+
     void SetupLine(LineRenderer line, Color color, float width)
     {
+        if (line == null) return;
+
         line.startColor = color;
         line.endColor = color;
         line.startWidth = width;
@@ -35,22 +46,22 @@ public class DrawRange2 : MonoBehaviour
 
     void DrawVisionCone()
     {
-        if (visionLine == null) return;
+        if (VisionLine == null) return;
 
-        visionLine.positionCount = segments + 2;
-        visionLine.SetPosition(0, transform.position);
+        VisionLine.positionCount = Segments + 2;
+        VisionLine.SetPosition(0, transform.position);
 
-        float startAngle = -visionAngle / 2;
+        float startAngle = -VisionAngle / 2;
 
-        for (int i = 0; i <= segments; i++)
+        for (int i = 0; i <= Segments; i++)
         {
-            float currentAngle = startAngle + (visionAngle / segments) * i;
+            float currentAngle = startAngle + (VisionAngle / Segments) * i;
 
             Vector3 direction = Quaternion.AngleAxis(currentAngle, Vector3.forward) * transform.right;
-            Vector3 point = transform.position + direction * detectionRange;
+            Vector3 point = transform.position + direction * DetectionRange;
 
-            visionLine.SetPosition(i + 1, point);
+            VisionLine.SetPosition(i + 1, point);
         }
-        visionLine.SetPosition(segments + 1, transform.position);
+        VisionLine.SetPosition(Segments + 1, transform.position);
     }
 }

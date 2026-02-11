@@ -7,17 +7,15 @@ public class PlayerMove : MonoBehaviour
     private float speed = 3.0f;
 
     [SerializeField] 
-    public static float distance = 0f;
+    public static float Distance = 0f;
 
     [SerializeField]
-    public GameObject sprite;
-
+    public GameObject Sprite;
 
     Rigidbody2D rb;
     private Vector2 moveInput;
 
     private Vector2 lastPosition;
-
 
     void Start()
     {
@@ -29,9 +27,7 @@ public class PlayerMove : MonoBehaviour
     {
         Vector2 targetVelocity = moveInput * speed;
         rb.linearVelocity = (moveInput * speed);
-
-        distance += Vector2.Distance(rb.position, lastPosition);
-
+        Distance += Vector2.Distance(rb.position, lastPosition);
         lastPosition = rb.position;
     }
 
@@ -41,8 +37,7 @@ public class PlayerMove : MonoBehaviour
         if (moveInput.sqrMagnitude > 0.01f)
         {
             float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-
-            sprite.transform.rotation = Quaternion.Euler(0, 0, angle);
+            Sprite.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
 }

@@ -6,22 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class WinTrigger : MonoBehaviour
 {
-    public static float highScore;
-    public static float currentTime;
-    public static bool win = false;
-    
-    public void Start()
-    {
-        highScore = float.MaxValue;
-    }
-
+    public static float HighScore = float.MaxValue;
+    public static float CurrentTime;
+    public static bool Win = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        win = true;
-        currentTime = Timer.TimePast;
-        if (currentTime < highScore)
+        Win = true;
+        CurrentTime = Timer.TimePast;
+        if (CurrentTime < HighScore)
         {
-            highScore = currentTime;
+            HighScore = CurrentTime;
         }
         SceneManager.LoadScene("Ending");
     }

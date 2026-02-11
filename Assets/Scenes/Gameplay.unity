@@ -617,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 155923679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 19.95, y: -3.5, z: 0}
+  m_LocalPosition: {x: 25.52, y: -13.49, z: 0}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -638,8 +638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e841aef036f024f875047c8fd43cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  sprite: {fileID: 1455685063}
+  speed: 4
+  Sprite: {fileID: 1455685063}
 --- !u!114 &155923687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23197,7 +23197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfbbf16d8452a84f9ec4a9c7c9f0fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chasing
-  Speed: 2.5
+  Speed: 4
 --- !u!114 &1343789293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23210,10 +23210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f740629d1add34bae043415b61182c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectorVisual
-  visionLine: {fileID: 1611078253}
-  detectionRange: 4
-  visionAngle: 60
-  segments: 30
+  VisionLine: {fileID: 1611078253}
+  DetectionRange: 5
+  VisionAngle: 45
+  Segments: 30
 --- !u!1 &1384941476
 GameObject:
   m_ObjectHideFlags: 0
@@ -23485,10 +23485,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fda29deba42af4fa95428fe127b00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DrawRange2
-  visionLine: {fileID: 974662859}
-  detectionRange: 4
-  visionAngle: 60
-  segments: 30
+  VisionLine: {fileID: 974662859}
+  DetectionRange: 5
+  VisionAngle: 45
+  Segments: 30
 --- !u!114 &1450510761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23501,7 +23501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a67375c1583724eba60093f7f8e9ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chasing2
-  Speed: 3
+  Speed: 4
 --- !u!50 &1450510762
 Rigidbody2D:
   serializedVersion: 5

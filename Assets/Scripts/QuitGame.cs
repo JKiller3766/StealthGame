@@ -5,7 +5,7 @@ public class QuitGame : MonoBehaviour
 {
     public void OnExitGame()
     {
-            Application.Quit();
-            Debug.Log("Salir del juego...");
+		Application.Quit();
+		Debug.Log("Salir del juego...");
     }
 }

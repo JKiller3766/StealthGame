@@ -33,6 +33,9 @@ public class Chasing1 : MonoBehaviour
     {
         VisionDetector1.OnChase -= StartChase;
         VisionDetector1.OnStopChase -= StopChasing;
+
+        OnReturn = null;
+        OnStopReturn = null;
     }
 
     private void StartChase()
@@ -74,11 +77,12 @@ public class Chasing1 : MonoBehaviour
     private void MoveAndRotate(Vector2 targetPos)
     {
         Vector2 direction = targetPos - (Vector2)transform.position;
-        transform.position += (Vector3)direction.normalized * Speed * Time.deltaTime;
+
+        transform.position += (Vector3)direction.normalized * Speed * Time.fixedDeltaTime;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 100f * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 200f * Time.fixedDeltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
