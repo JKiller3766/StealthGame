@@ -1,11 +1,11 @@
 ## Delivery 02 - Stealth Game
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/14932bb4-4701-429f-87fb-1a77498cfc56" />
+![$(Game Title)](Screenshots/Title.png "$(Game Title)")
 
 ### Description
 
 You are a soldier trying to complete a mission, try to reach the exit of the buliding while avoid being caught by the guards.
-
+![alt text](image.png)
 ### Features
 
  - Guards patroling and chasing.
@@ -27,9 +27,9 @@ Keyboard:
 
 ### Screenshots
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/1267db87-ab85-44b0-9b86-97aeb8e5bf4d" />
+![$(Patrolling)](Screenshots/Patrolling.png "$(Patrolling)")
 
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d930de24-c46f-46b2-8bba-7a12f0aaa424" />
+![$(Chasing)](Screenshots/Chasing.png "$(Chasing)")
 
 ### License
 
