@@ -1,6 +1,6 @@
 ## Delivery 02 - Stealth Game
 
-![$(Game Title)](Screenshots/screenshot01.png "$(Game Title)")
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/14932bb4-4701-429f-87fb-1a77498cfc56" />
 
 ### Description
 
@@ -24,6 +24,12 @@ Keyboard:
  - JKiller3766 - Programmer
  - DeafKangaroo - Programmer
  - AdriaGil0922 - Programmer
+
+### Screenshots
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/1267db87-ab85-44b0-9b86-97aeb8e5bf4d" />
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d930de24-c46f-46b2-8bba-7a12f0aaa424" />
 
 ### License
 
