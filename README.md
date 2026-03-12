@@ -5,7 +5,7 @@
 ### Description
 
 You are a soldier trying to complete a mission, try to reach the exit of the buliding while avoid being caught by the guards.
-![alt text](image.png)
+
 ### Features
 
  - Guards patroling and chasing.
